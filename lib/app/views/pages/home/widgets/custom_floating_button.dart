@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chatme_app/app/views/pages/home/new_chat/new_chat_typing_screen.dart';
 import 'package:flutter_chatme_app/common/app_colors.dart';
 import 'package:flutter_chatme_app/common/app_data.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomHomeScreenFloatingButton extends StatelessWidget {
   const CustomHomeScreenFloatingButton({
@@ -60,15 +62,19 @@ class CustomHomeScreenFloatingButton extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 10),
-                      Container(
-                        height: 20,
-                        width: double.infinity,
-                        color: AppColors.divider,
+                      GestureDetector(
+                        onTap: () => GoRouter.of(context)
+                            .goNamed(NewChatTypingScreen.routeName),
                         child: Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: AppData.appPadding,
+                          height: 20,
+                          width: double.infinity,
+                          color: AppColors.divider,
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: AppData.appPadding,
+                            ),
+                            child: const Text('A'),
                           ),
-                          child: const Text('A'),
                         ),
                       ),
                     ],

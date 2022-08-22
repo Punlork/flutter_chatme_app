@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/new_chat/new_chat_typing_screen.dart';
+import 'package:flutter_chatme_app/app/views/pages/home/new_contact/new_contact_screen.dart';
 import 'package:flutter_chatme_app/common/app_colors.dart';
 import 'package:flutter_chatme_app/common/app_data.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -109,7 +110,9 @@ class CustomHomeScreenFloatingButton extends StatelessWidget {
               CustomHomeScreenOptions(
                 title: 'New Contact',
                 iconPath: 'assets/icons/Solid/user-circle.svg',
-                onPressed: () {},
+                onPressed: () {
+                  GoRouter.of(context).pushNamed(NewContactScreen.routeName);
+                },
               ),
               CustomHomeScreenOptions(
                 title: 'New Group',

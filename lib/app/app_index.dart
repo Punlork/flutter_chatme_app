@@ -4,6 +4,7 @@ import 'package:flutter_chatme_app/app/views/pages/add_name/add_name_screen.dart
 import 'package:flutter_chatme_app/app/views/pages/add_phone_number/add_phone_number.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/homepage_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/new_chat/new_chat_typing_screen.dart';
+import 'package:flutter_chatme_app/app/views/pages/home/new_contact/new_contact_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/onboarding/onborading_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/splash/splash_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/upload_photo/upload_photo_screen.dart';
@@ -56,6 +57,11 @@ class Main extends StatelessWidget {
         path: NewChatTypingScreen.routePath,
         name: NewChatTypingScreen.routeName,
         builder: (context, state) => const NewChatTypingScreen(),
+      ),
+      GoRoute(
+        path: NewContactScreen.routePath,
+        name: NewContactScreen.routeName,
+        builder: (context, state) => NewContactScreen(),
       ),
     ],
   );

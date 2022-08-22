@@ -1,0 +1,48 @@
+name: flutter_chatme_app
+description: A chatme app created by Very Good CLI.
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ">=2.17.0 <3.0.0"
+  flutter: 3.0.5
+
+dependencies:
+  bloc: ^8.1.0
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.1
+  flutter_localizations:
+    sdk: flutter
+  flutter_svg: ^1.1.4
+  go_router: ^4.2.8
+  material_color_generator: ^1.1.0
+  intl: ^0.17.0
+
+dev_dependencies:
+  bloc_test: ^9.1.0
+  flutter_test:
+    sdk: flutter
+  mocktail: ^0.3.0
+  very_good_analysis: ^3.0.1
+
+flutter:
+  uses-material-design: true
+  generate: true
+
+  assets:
+    - assets/icons/flag/
+    - assets/icons/Solid/
+    - assets/icons/Outline/
+    - assets/images/
+  fonts:
+    - family: SF Pro Display
+      fonts:
+        - asset: assets/fonts/sf-pro-display-font/SF-Pro-Display-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/sf-pro-display-font/SF-Pro-Display-medium.ttf
+          weight: 500
+        - asset: assets/fonts/sf-pro-display-font/SF-Pro-Display-Semibold.ttf
+          weight: 600
+        - asset: assets/fonts/sf-pro-display-font/SF-Pro-Display-Bold.ttf
+          weight: 700

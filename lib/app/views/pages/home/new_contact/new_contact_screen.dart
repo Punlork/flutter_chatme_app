@@ -17,117 +17,115 @@ class NewContactScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SizedBox.expand(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Stack(
-              alignment: Alignment.topCenter,
-              children: [
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.23,
-                  color: AppColors.primary,
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: circleRadius / 1.3),
-                  child: Container(
-                    width: circleRadius,
-                    height: circleRadius,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black26,
-                          blurRadius: 8,
-                          offset: Offset(0, 5),
-                        ),
-                      ],
-                    ),
-                    child: Stack(
-                      alignment: Alignment.bottomRight,
-                      children: [
-                        const ClipOval(
-                          child: Placeholder(),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(right: circleRadius / 15),
-                          child: GestureDetector(
-                            onTap: () {
-                              // print('Tapped!');
-                            },
-                            child: Container(
-                              height: 40,
-                              width: 40,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: AppColors.primary,
-                              ),
-                              child: const Icon(
-                                Icons.photo_camera_rounded,
-                              ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Stack(
+            alignment: Alignment.topCenter,
+            children: [
+              Container(
+                height: MediaQuery.of(context).size.height * 0.23,
+                color: AppColors.primary,
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: circleRadius / 1.3),
+                child: Container(
+                  width: circleRadius,
+                  height: circleRadius,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black26,
+                        blurRadius: 8,
+                        offset: Offset(0, 5),
+                      ),
+                    ],
+                  ),
+                  child: Stack(
+                    alignment: Alignment.bottomRight,
+                    children: [
+                      const ClipOval(
+                        child: Placeholder(),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(right: circleRadius / 15),
+                        child: GestureDetector(
+                          onTap: () {
+                            // print('Tapped!');
+                          },
+                          child: Container(
+                            height: 40,
+                            width: 40,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: AppColors.primary,
+                            ),
+                            child: const Icon(
+                              Icons.photo_camera_rounded,
                             ),
                           ),
                         ),
-                      ],
-                    ),
-                  ),
-                ),
-                Row(
-                  children: [
-                    IconButton(
-                      onPressed: () {
-                        GoRouter.of(context).pop();
-                      },
-                      icon: const Icon(Icons.navigate_before),
-                    ),
-                    const SizedBox(width: 100),
-                    Padding(
-                      padding:
-                          EdgeInsets.symmetric(vertical: circleRadius / 2.5),
-                      child: Text(
-                        'New Contact',
-                        style: Theme.of(context).textTheme.headline2,
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: AppData.appPadding,
               ),
-              child: Column(
-                children: <Widget>[
-                  const SizedBox(height: 30),
-                  const CustomNewContactTextField(
-                    iconData: Icons.person,
-                    hintText: 'First Name',
-                    title: 'First Name',
+              Row(
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      GoRouter.of(context).pop();
+                    },
+                    icon: const Icon(Icons.navigate_before),
                   ),
-                  const SizedBox(height: 30),
-                  const CustomNewContactTextField(
-                    iconData: Icons.person,
-                    hintText: 'Last Name',
-                    title: 'Last Name',
-                  ),
-                  const SizedBox(height: 30),
-                  const CustomNewContactTextField(
-                    iconData: Icons.flag,
-                    hintText: 'Phone Number',
-                    title: 'Phone Number',
-                  ),
-                  SvgPicture.asset('assets/icons/Solid/qrcode.svg'),
-                  Text(
-                    'Or add via QR code',
-                    style: Theme.of(context).textTheme.bodyText1,
+                  const SizedBox(width: 100),
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: circleRadius / 2.5),
+                    child: Text(
+                      'New Contact',
+                      style: Theme.of(context).textTheme.headline2,
+                    ),
                   ),
                 ],
               ),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: AppData.appPadding,
             ),
-          ],
-        ),
+            child: Column(
+              children: <Widget>[
+                const SizedBox(height: 30),
+                const CustomNewContactTextField(
+                  iconData: Icons.person,
+                  hintText: 'First Name',
+                  title: 'First Name',
+                ),
+                const SizedBox(height: 30),
+                const CustomNewContactTextField(
+                  iconData: Icons.person,
+                  hintText: 'Last Name',
+                  title: 'Last Name',
+                ),
+                const SizedBox(height: 30),
+                const CustomNewContactTextField(
+                  iconData: Icons.flag,
+                  hintText: 'Phone Number',
+                  title: 'Phone Number',
+                ),
+                const SizedBox(height: 30),
+                SvgPicture.asset('assets/icons/Solid/qrcode.svg'),
+                Text(
+                  'Or add via QR code',
+                  style: Theme.of(context).textTheme.bodyText1,
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
       bottomSheet: Container(
         margin: const EdgeInsets.symmetric(
@@ -152,7 +150,7 @@ class CustomNewContactTextField extends StatelessWidget {
 
   final String title;
   final String hintText;
-  final IconData iconData;
+  final IconData? iconData;
 
   @override
   Widget build(BuildContext context) {
@@ -175,7 +173,7 @@ class CustomNewContactTextField extends StatelessWidget {
           ),
           child: TextField(
             decoration: InputDecoration(
-              icon: Icon(iconData),
+              icon: iconData != null ? Icon(iconData) : null,
               hintText: hintText,
             ),
           ),

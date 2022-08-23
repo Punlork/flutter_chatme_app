@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_chatme_app/app/views/pages/home/homepage_screen.dart';
 import 'package:flutter_chatme_app/common/app_colors.dart';
 import 'package:flutter_chatme_app/common/app_data.dart';
 import 'package:go_router/go_router.dart';
@@ -63,38 +62,49 @@ class NewChatTypingScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: AppColors.primary[50],
-      appBar: AppBar(
-        toolbarHeight: MediaQuery.of(context).size.height * 0.15,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: <Widget>[
-            IconButton(
-              icon: const Icon(Icons.navigate_before),
-              onPressed: () {
-                GoRouter.of(context).goNamed(HomepageScreen.routeName);
-              },
-            ),
-            Container(
-              height: 50,
-              width: 50,
-              decoration: const BoxDecoration(
-                color: AppColors.white,
-                shape: BoxShape.circle,
-              ),
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text('Keanu Murphy'),
-                Text('Active 5 minutes ago')
+      body: Column(
+        children: [
+          Container(
+            height: MediaQuery.of(context).size.height * 0.15,
+            color: AppColors.primary,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                IconButton(
+                  icon: const Icon(Icons.navigate_before),
+                  onPressed: () {
+                    GoRouter.of(context).pop();
+                  },
+                ),
+                Container(
+                  height: 50,
+                  width: 50,
+                  decoration: const BoxDecoration(
+                    color: AppColors.white,
+                    shape: BoxShape.circle,
+                  ),
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Keanu Murphy',
+                      style: TextStyle(color: AppColors.white, fontSize: 18),
+                    ),
+                    Text(
+                      'Active 5 minutes ago',
+                      style: TextStyle(color: AppColors.white, fontSize: 16),
+                    ),
+                  ],
+                ),
+                const Icon(Icons.videocam),
+                const Icon(Icons.call)
               ],
             ),
-            const Icon(Icons.video_camera_front_outlined),
-            const Icon(Icons.call)
-          ],
-        ),
+          ),
+        ],
       ),
-      body: Container(),
       bottomSheet: ColoredBox(
         color: AppColors.primary[50]!,
         child: Container(

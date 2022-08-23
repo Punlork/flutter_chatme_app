@@ -6,6 +6,8 @@ class AppColors {
       generateMaterialColor(color: const Color(0xff57B77D));
   static const Color white = Colors.white;
   static const Color divider = Color(0xffEAEEF2);
+  static const Color warning = Color(0xffE8A13A);
+  static const Color danger = Color(0xffDD524C);
   static MaterialColor nuetral =
       generateMaterialColor(color: const Color(0xff081C2C));
 }

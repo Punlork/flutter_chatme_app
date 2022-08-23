@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chatme_app/common/app_colors.dart';
 import 'package:flutter_chatme_app/common/app_data.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomHomeScreenAppBar extends StatelessWidget {
   const CustomHomeScreenAppBar({
@@ -35,7 +34,10 @@ class CustomHomeScreenAppBar extends StatelessWidget {
             ),
             child: TextField(
               decoration: InputDecoration(
-                icon: SvgPicture.asset('assets/icons/Outline/search.svg'),
+                icon: Icon(
+                  Icons.search,
+                  color: AppColors.white,
+                ),
                 hintText: 'Search chat, people and more...',
                 hintStyle: const TextStyle(
                   color: AppColors.white,

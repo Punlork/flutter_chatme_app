@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chatme_app/app/views/pages/home/settings/edit_profile/edit_profile_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/models/setting_models.dart';
 import 'package:flutter_chatme_app/common/app_colors.dart';
 import 'package:flutter_chatme_app/common/app_data.dart';
+import 'package:go_router/go_router.dart';
 
 class SettingScreen extends StatelessWidget {
   SettingScreen({super.key}) {
@@ -46,7 +48,9 @@ class SettingScreen extends StatelessWidget {
                   style: Theme.of(context).textTheme.headline1,
                 ),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    GoRouter.of(context).pushNamed(EditProfileScreen.routeName);
+                  },
                   icon: Icon(
                     Icons.edit,
                     color: AppColors.primary,
@@ -65,6 +69,7 @@ class SettingScreen extends StatelessWidget {
                     color: AppColors.primary,
                     shape: BoxShape.circle,
                   ),
+                  child: Image.asset('assets/images/Ellipse 18.png'),
                 ),
                 const SizedBox(width: 20),
                 Expanded(
@@ -88,10 +93,13 @@ class SettingScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                Icon(
-                  Icons.qr_code,
-                  color: AppColors.primary,
-                  size: 40,
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.qr_code,
+                    color: AppColors.primary,
+                    size: 30,
+                  ),
                 ),
               ],
             ),

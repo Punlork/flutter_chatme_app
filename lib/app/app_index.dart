@@ -8,6 +8,7 @@ import 'package:flutter_chatme_app/app/views/pages/home/homepage_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/new_chat/new_chat_typing_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/new_contact/new_contact_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/edit_profile/edit_profile_screen.dart';
+import 'package:flutter_chatme_app/app/views/pages/home/settings/qr_code/qr_code_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/setting_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/onboarding/onborading_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/splash/splash_screen.dart';
@@ -76,6 +77,11 @@ class Main extends StatelessWidget {
         path: EditProfileScreen.routePath,
         name: EditProfileScreen.routeName,
         builder: (context, state) => EditProfileScreen(),
+      ),
+      GoRoute(
+        path: QrCodeScreen.routePath,
+        name: QrCodeScreen.routeName,
+        builder: (context, state) => QrCodeScreen(),
       ),
     ],
   );

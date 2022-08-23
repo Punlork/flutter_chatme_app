@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_chatme_app/app/logic/cubit/index_page_cubit.dart';
 import 'package:flutter_chatme_app/app/views/pages/add_name/add_name_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/add_phone_number/add_phone_number.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/homepage_screen.dart';
@@ -74,59 +76,62 @@ class Main extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      routerDelegate: _router.routerDelegate,
-      routeInformationParser: _router.routeInformationParser,
-      routeInformationProvider: _router.routeInformationProvider,
-      theme: ThemeData(
-        fontFamily: AppData.fontFamily,
-        primarySwatch: AppColors.primary,
-        appBarTheme: const AppBarTheme(
-          systemOverlayStyle: SystemUiOverlayStyle(
-            statusBarColor: Colors.transparent,
-            statusBarIconBrightness: Brightness.dark,
-            statusBarBrightness: Brightness.light,
+    return BlocProvider(
+      create: (context) => IndexPageCubit(),
+      child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        routerDelegate: _router.routerDelegate,
+        routeInformationParser: _router.routeInformationParser,
+        routeInformationProvider: _router.routeInformationProvider,
+        theme: ThemeData(
+          fontFamily: AppData.fontFamily,
+          primarySwatch: AppColors.primary,
+          appBarTheme: const AppBarTheme(
+            systemOverlayStyle: SystemUiOverlayStyle(
+              statusBarColor: Colors.transparent,
+              statusBarIconBrightness: Brightness.dark,
+              statusBarBrightness: Brightness.light,
+            ),
+            elevation: 0,
+            // backgroundColor: ,
           ),
-          elevation: 0,
-          // backgroundColor: ,
-        ),
-        inputDecorationTheme: const InputDecorationTheme(
-          border: InputBorder.none,
-        ),
-        iconTheme: const IconThemeData(
-          color: AppColors.white,
-        ),
-        textTheme: TextTheme(
-          headline1: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.w700,
-            color: AppColors.nuetral[900],
+          inputDecorationTheme: const InputDecorationTheme(
+            border: InputBorder.none,
           ),
-          headline2: const TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.w700,
+          iconTheme: const IconThemeData(
             color: AppColors.white,
           ),
-          bodyText1: TextStyle(
-            fontSize: 14,
-            fontWeight: FontWeight.w400,
-            color: AppColors.nuetral[300],
-          ),
-          bodyText2: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-            color: AppColors.nuetral[600],
-          ),
-          headline3: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.w600,
-            color: AppColors.nuetral[600],
-          ),
-          caption: TextStyle(
-            fontSize: 14,
-            fontWeight: FontWeight.w500,
-            color: AppColors.nuetral[600],
+          textTheme: TextTheme(
+            headline1: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.w700,
+              color: AppColors.nuetral[900],
+            ),
+            headline2: const TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.w700,
+              color: AppColors.white,
+            ),
+            bodyText1: TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w400,
+              color: AppColors.nuetral[300],
+            ),
+            bodyText2: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+              color: AppColors.nuetral[600],
+            ),
+            headline3: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+              color: AppColors.nuetral[600],
+            ),
+            caption: TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w500,
+              color: AppColors.nuetral[600],
+            ),
           ),
         ),
       ),

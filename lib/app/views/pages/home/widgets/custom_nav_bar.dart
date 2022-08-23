@@ -1,43 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_chatme_app/app/logic/cubit/index_page_cubit.dart';
 
 // ignore: must_be_immutable
-class ButtomNavBar extends StatefulWidget {
+class ButtomNavBar extends StatelessWidget {
   ButtomNavBar({
     super.key,
-    required this.currentIndex,
   });
 
-  int currentIndex;
-
-  @override
-  State<ButtomNavBar> createState() => _ButtomNavBarState();
-}
-
-class _ButtomNavBarState extends State<ButtomNavBar> {
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      currentIndex: widget.currentIndex,
-      onTap: (value) {
-        setState(() {
-          widget.currentIndex = value;
-        });
+    return BlocBuilder<IndexPageCubit, IndexPageState>(
+      builder: (context, state) {
+        return BottomNavigationBar(
+          currentIndex: state.currentIndex,
+          onTap: (value) {
+            BlocProvider.of<IndexPageCubit>(context).getIndex(value);
+          },
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.phone),
+              label: 'Call',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.chat),
+              label: 'Chats',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings),
+              label: 'Settings',
+            ),
+          ],
+        );
       },
-      items: [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.phone),
-          label: 'Call',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.chat),
-          label: 'Chats',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.settings),
-          label: 'Settings',
-        ),
-      ],
     );
   }
 }

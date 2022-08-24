@@ -64,44 +64,9 @@ class NewChatTypingScreen extends StatelessWidget {
       backgroundColor: AppColors.primary[50],
       body: Column(
         children: [
-          Container(
-            height: MediaQuery.of(context).size.height * 0.15,
-            color: AppColors.primary,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                IconButton(
-                  icon: const Icon(Icons.navigate_before),
-                  onPressed: () {
-                    GoRouter.of(context).pop();
-                  },
-                ),
-                Container(
-                  height: 50,
-                  width: 50,
-                  decoration: const BoxDecoration(
-                    color: AppColors.white,
-                    shape: BoxShape.circle,
-                  ),
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Keanu Murphy',
-                      style: TextStyle(color: AppColors.white, fontSize: 18),
-                    ),
-                    Text(
-                      'Active 5 minutes ago',
-                      style: TextStyle(color: AppColors.white, fontSize: 16),
-                    ),
-                  ],
-                ),
-                const Icon(Icons.videocam),
-                const Icon(Icons.call)
-              ],
-            ),
+          CustomNewChatHeader(
+            name: 'Keanu Murphy',
+            subtitle: 'Active 5 minutes ago',
           ),
         ],
       ),
@@ -142,6 +107,68 @@ class NewChatTypingScreen extends StatelessWidget {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class CustomNewChatHeader extends StatelessWidget {
+  const CustomNewChatHeader({
+    Key? key,
+    required this.name,
+    required this.subtitle,
+    this.icon,
+  }) : super(key: key);
+
+  final String name;
+  final String subtitle;
+  final IconData? icon;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: MediaQuery.of(context).size.height * 0.15,
+      color: AppColors.primary,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.navigate_before),
+            onPressed: () {
+              GoRouter.of(context).pop();
+            },
+          ),
+          Container(
+            height: 50,
+            width: 50,
+            decoration: const BoxDecoration(
+              color: AppColors.white,
+              shape: BoxShape.circle,
+            ),
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Row(
+                children: [
+                  Icon(icon != null ? icon : null),
+                  SizedBox(width: icon != null ? 10 : 0),
+                  Text(
+                    name,
+                    style: TextStyle(color: AppColors.white, fontSize: 18),
+                  ),
+                ],
+              ),
+              Text(
+                subtitle,
+                style: TextStyle(color: AppColors.white, fontSize: 16),
+              ),
+            ],
+          ),
+          const Icon(Icons.videocam),
+          const Icon(Icons.call)
+        ],
       ),
     );
   }

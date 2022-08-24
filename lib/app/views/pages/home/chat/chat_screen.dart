@@ -2,10 +2,12 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/chat/models/chat_models.dart';
+import 'package:flutter_chatme_app/app/views/pages/home/group/group_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/widgets/custom_appbar.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/widgets/custom_floating_button.dart';
 import 'package:flutter_chatme_app/common/app_colors.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:go_router/go_router.dart';
 
 class ChatScreen extends StatelessWidget {
   ChatScreen({super.key}) {
@@ -112,88 +114,94 @@ class ChatScreen extends StatelessWidget {
                 const SizedBox(width: 10),
               ],
             ),
-            child: Container(
-              margin: const EdgeInsets.all(16),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: <Widget>[
-                  Container(
-                    height: 60,
-                    width: 60,
-                    decoration: BoxDecoration(
-                      color: Colors
-                          .primaries[Random().nextInt(Colors.primaries.length)],
-                      shape: BoxShape.circle,
+            child: InkWell(
+              onLongPress: () {
+                print('hello');
+                GoRouter.of(context).pushNamed(GroupScreen.routeName);
+              },
+              child: Container(
+                margin: const EdgeInsets.all(16),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    Container(
+                      height: 60,
+                      width: 60,
+                      decoration: BoxDecoration(
+                        color: Colors.primaries[
+                            Random().nextInt(Colors.primaries.length)],
+                        shape: BoxShape.circle,
+                      ),
                     ),
-                  ),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              children: [
-                                user.isGroup != null
-                                    ? Icon(
-                                        user.isGroup,
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  user.isGroup != null
+                                      ? Icon(
+                                          user.isGroup,
+                                          color: AppColors.primary,
+                                        )
+                                      : SizedBox(),
+                                  SizedBox(width: user.isGroup != null ? 5 : 0),
+                                  Text(user.name),
+                                  const SizedBox(width: 5),
+                                  user.isMusted != null
+                                      ? Icon(
+                                          user.isMusted,
+                                          color: AppColors.nuetral[300],
+                                        )
+                                      : SizedBox(),
+                                ],
+                              ),
+                              Text(user.time),
+                            ],
+                          ),
+                          const SizedBox(height: 5),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  user.isSender != null
+                                      ? Text(user.isSender!)
+                                      : SizedBox(),
+                                  Text(
+                                    ' ${user.chat}',
+                                    maxLines: 1,
+                                  ),
+                                ],
+                              ),
+                              user.notSeen != null
+                                  ? Container(
+                                      height: 30,
+                                      width: 30,
+                                      decoration: BoxDecoration(
                                         color: AppColors.primary,
-                                      )
-                                    : SizedBox(),
-                                SizedBox(width: user.isGroup != null ? 5 : 0),
-                                Text(user.name),
-                                const SizedBox(width: 5),
-                                user.isMusted != null
-                                    ? Icon(
-                                        user.isMusted,
-                                        color: AppColors.nuetral[300],
-                                      )
-                                    : SizedBox(),
-                              ],
-                            ),
-                            Text(user.time),
-                          ],
-                        ),
-                        const SizedBox(height: 5),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              children: [
-                                user.isSender != null
-                                    ? Text(user.isSender!)
-                                    : SizedBox(),
-                                Text(
-                                  ' ${user.chat}',
-                                  maxLines: 1,
-                                ),
-                              ],
-                            ),
-                            user.notSeen != null
-                                ? Container(
-                                    height: 30,
-                                    width: 30,
-                                    decoration: BoxDecoration(
-                                      color: AppColors.primary,
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: Center(
-                                        child: Text(
-                                      user.notSeen ?? '',
-                                      style: TextStyle(
-                                        color: AppColors.white,
+                                        shape: BoxShape.circle,
                                       ),
-                                    )),
-                                  )
-                                : SizedBox(),
-                          ],
-                        )
-                      ],
+                                      child: Center(
+                                          child: Text(
+                                        user.notSeen ?? '',
+                                        style: TextStyle(
+                                          color: AppColors.white,
+                                        ),
+                                      )),
+                                    )
+                                  : SizedBox(),
+                            ],
+                          )
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           );

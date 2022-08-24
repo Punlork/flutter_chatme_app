@@ -118,11 +118,13 @@ class CustomNewChatHeader extends StatelessWidget {
     required this.name,
     required this.subtitle,
     this.icon,
+    this.onPressed,
   }) : super(key: key);
 
   final String name;
   final String subtitle;
   final IconData? icon;
+  final Function? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -146,25 +148,30 @@ class CustomNewChatHeader extends StatelessWidget {
               shape: BoxShape.circle,
             ),
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Row(
-                children: [
-                  Icon(icon != null ? icon : null),
-                  SizedBox(width: icon != null ? 10 : 0),
-                  Text(
-                    name,
-                    style: TextStyle(color: AppColors.white, fontSize: 18),
-                  ),
-                ],
-              ),
-              Text(
-                subtitle,
-                style: TextStyle(color: AppColors.white, fontSize: 16),
-              ),
-            ],
+          GestureDetector(
+            onTap: () {
+              onPressed != null ? onPressed!() : () {};
+            },
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  children: [
+                    Icon(icon != null ? icon : null),
+                    SizedBox(width: icon != null ? 10 : 0),
+                    Text(
+                      name,
+                      style: TextStyle(color: AppColors.white, fontSize: 18),
+                    ),
+                  ],
+                ),
+                Text(
+                  subtitle,
+                  style: TextStyle(color: AppColors.white, fontSize: 16),
+                ),
+              ],
+            ),
           ),
           const Icon(Icons.videocam),
           const Icon(Icons.call)

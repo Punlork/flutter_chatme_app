@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_chatme_app/app/logic/cubit/index_page_cubit.dart';
 import 'package:flutter_chatme_app/app/views/pages/add_name/add_name_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/add_phone_number/add_phone_number.dart';
+import 'package:flutter_chatme_app/app/views/pages/home/group/deail_group/detail_group_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/group/group_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/homepage_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/new_chat/new_chat_typing_screen.dart';
@@ -148,6 +149,11 @@ class Main extends StatelessWidget {
         path: GroupScreen.routePath,
         name: GroupScreen.routeName,
         builder: (context, state) => GroupScreen(),
+      ),
+      GoRoute(
+        path: DetailGroupScreen.routePath,
+        name: DetailGroupScreen.routeName,
+        builder: (context, state) => DetailGroupScreen(),
       ),
     ],
   );

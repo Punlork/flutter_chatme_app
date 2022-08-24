@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chatme_app/app/views/pages/home/group/deail_group/detail_group_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/new_chat/new_chat_typing_screen.dart';
 import 'package:flutter_chatme_app/common/app_colors.dart';
 import 'package:flutter_chatme_app/common/app_data.dart';
+import 'package:go_router/go_router.dart';
 
 class GroupScreen extends StatelessWidget {
   const GroupScreen({Key? key}) : super(key: key);
@@ -68,6 +70,9 @@ class GroupScreen extends StatelessWidget {
             name: 'Work Team',
             subtitle: 'Annete, Lane and 26+',
             icon: Icons.people,
+            onPressed: () {
+              GoRouter.of(context).pushNamed(DetailGroupScreen.routeName);
+            },
           ),
           Chat(
             message1: 'Hello, Good morning✨',

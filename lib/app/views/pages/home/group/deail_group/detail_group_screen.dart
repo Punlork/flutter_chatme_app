@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chatme_app/app/views/pages/home/group/photos/group_photo.dart';
 import 'package:flutter_chatme_app/common/app_colors.dart';
 import 'package:flutter_chatme_app/common/app_data.dart';
 import 'package:go_router/go_router.dart';
@@ -98,6 +99,9 @@ class DetailGroupScreen extends StatelessWidget {
           GroupComponent(
             icon: Icons.photo_outlined,
             title: '2238 Photos',
+            onPressed: () {
+              GoRouter.of(context).pushNamed(GroupPhotoScreen.routeName);
+            },
           ),
           const SizedBox(height: 10),
           Container(
@@ -115,11 +119,13 @@ class DetailGroupScreen extends StatelessWidget {
           GroupComponent(
             icon: Icons.star_border_purple500_outlined,
             title: '43 star messages',
+            onPressed: () {},
           ),
           const SizedBox(height: 10),
           GroupComponent(
             icon: Icons.link_outlined,
             title: '19 shared links',
+            onPressed: () {},
           ),
           const SizedBox(height: 10),
           Divider(thickness: 7),
@@ -188,37 +194,38 @@ class GroupComponent extends StatelessWidget {
     Key? key,
     required this.title,
     required this.icon,
+    required this.onPressed,
   }) : super(key: key);
 
   final String title;
   final IconData icon;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: AppData.appPadding),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Row(
-                children: [
-                  Icon(
-                    icon,
-                    color: AppColors.primary,
-                  ),
-                  const SizedBox(width: 10),
-                  Text(title),
-                ],
-              ),
-              Icon(
-                Icons.navigate_next,
-                color: AppColors.nuetral[300],
-              )
-            ],
-          ),
-        ],
+      child: GestureDetector(
+        onTap: () => onPressed(),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Row(
+              children: [
+                Icon(
+                  icon,
+                  color: AppColors.primary,
+                ),
+                const SizedBox(width: 10),
+                Text(title),
+              ],
+            ),
+            Icon(
+              Icons.navigate_next,
+              color: AppColors.nuetral[300],
+            )
+          ],
+        ),
       ),
     );
   }

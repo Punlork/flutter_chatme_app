@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_chatme_app/app/logic/cubit/button_index_cubit.dart';
 import 'package:flutter_chatme_app/app/logic/cubit/index_page_cubit.dart';
 import 'package:flutter_chatme_app/app/views/pages/add_name/add_name_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/add_phone_number/add_phone_number.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/group/deail_group/detail_group_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/group/group_screen.dart';
+import 'package:flutter_chatme_app/app/views/pages/home/group/photos/group_photo.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/homepage_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/new_chat/new_chat_typing_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/new_contact/new_contact_screen.dart';
@@ -155,13 +157,25 @@ class Main extends StatelessWidget {
         name: DetailGroupScreen.routeName,
         builder: (context, state) => DetailGroupScreen(),
       ),
+      GoRoute(
+        path: GroupPhotoScreen.routePath,
+        name: GroupPhotoScreen.routeName,
+        builder: (context, state) => GroupPhotoScreen(),
+      ),
     ],
   );
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => IndexPageCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => IndexPageCubit(),
+        ),
+        BlocProvider(
+          create: (context) => ButtonIndexCubit(),
+        ),
+      ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         routerDelegate: _router.routerDelegate,

@@ -22,10 +22,11 @@ class HeaderSettingScreens extends StatelessWidget {
       padding: height != null ? EdgeInsets.only(top: 10) : null,
       color: AppColors.primary,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const SizedBox(height: 10),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               IconButton(
                 onPressed: () {
@@ -35,15 +36,19 @@ class HeaderSettingScreens extends StatelessWidget {
                 iconSize: 30,
                 color: AppColors.white,
               ),
-              Text(
-                title,
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w700,
-                  color: AppColors.white,
+              Expanded(
+                child: Center(
+                  child: Text(
+                    title,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w700,
+                      color: AppColors.white,
+                    ),
+                  ),
                 ),
               ),
-              SizedBox(width: MediaQuery.of(context).size.width * 0.04),
+              // SizedBox(width: MediaQuery.of(context).size.width * 0.04),
             ],
           ),
           textField != null ? textField! : SizedBox(),

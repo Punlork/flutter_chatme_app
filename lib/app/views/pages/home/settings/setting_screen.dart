@@ -3,6 +3,7 @@ import 'package:flutter_chatme_app/app/views/pages/home/settings/appearance/appe
 import 'package:flutter_chatme_app/app/views/pages/home/settings/edit_profile/edit_profile_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/last_call/last_call_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/models/setting_models.dart';
+import 'package:flutter_chatme_app/app/views/pages/home/settings/privacy/privacy_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/qr_code/qr_code_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/star_message/star_message_screen.dart';
 import 'package:flutter_chatme_app/common/app_colors.dart';
@@ -34,7 +35,11 @@ class SettingScreen extends StatelessWidget {
       SettingModel(name: 'Notification', icon: Icons.notifications),
     ];
     _lowerSettings = [
-      SettingModel(name: 'Privacy', icon: Icons.lock),
+      SettingModel(
+        name: 'Privacy',
+        icon: Icons.lock,
+        routeName: PrivacyScreen.routeName,
+      ),
       SettingModel(name: 'Data storage', icon: Icons.storage),
       SettingModel(name: 'FAQ', icon: Icons.question_mark),
       SettingModel(name: 'Logout', icon: Icons.logout),

@@ -10,6 +10,7 @@ import 'package:flutter_chatme_app/app/views/pages/home/new_contact/new_contact_
 import 'package:flutter_chatme_app/app/views/pages/home/settings/appearance/appearance_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/edit_profile/edit_profile_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/last_call/last_call_screen.dart';
+import 'package:flutter_chatme_app/app/views/pages/home/settings/privacy/privacy_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/qr_code/qr_code_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/setting_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/star_message/star_message_screen.dart';
@@ -102,9 +103,9 @@ class Main extends StatelessWidget {
         builder: (context, state) => AppearanceScreen(),
       ),
       GoRoute(
-        path: AppearanceScreen.routePath,
-        name: AppearanceScreen.routeName,
-        builder: (context, state) => AppearanceScreen(),
+        path: PrivacyScreen.routePath,
+        name: PrivacyScreen.routeName,
+        builder: (context, state) => PrivacyScreen(),
       ),
     ],
   );

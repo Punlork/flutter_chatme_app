@@ -10,6 +10,7 @@ import 'package:flutter_chatme_app/app/views/pages/home/new_contact/new_contact_
 import 'package:flutter_chatme_app/app/views/pages/home/settings/edit_profile/edit_profile_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/qr_code/qr_code_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/setting_screen.dart';
+import 'package:flutter_chatme_app/app/views/pages/home/settings/star_message/star_message_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/onboarding/onborading_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/splash/splash_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/upload_photo/upload_photo_screen.dart';
@@ -82,6 +83,11 @@ class Main extends StatelessWidget {
         path: QrCodeScreen.routePath,
         name: QrCodeScreen.routeName,
         builder: (context, state) => QrCodeScreen(),
+      ),
+      GoRoute(
+        path: StarMessageScreen.routePath,
+        name: StarMessageScreen.routeName,
+        builder: (context, state) => StarMessageScreen(),
       ),
     ],
   );

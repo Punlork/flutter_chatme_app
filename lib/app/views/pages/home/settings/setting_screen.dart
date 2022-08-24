@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/edit_profile/edit_profile_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/models/setting_models.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/qr_code/qr_code_screen.dart';
+import 'package:flutter_chatme_app/app/views/pages/home/settings/star_message/star_message_screen.dart';
 import 'package:flutter_chatme_app/common/app_colors.dart';
 import 'package:flutter_chatme_app/common/app_data.dart';
 import 'package:go_router/go_router.dart';
@@ -9,7 +10,11 @@ import 'package:go_router/go_router.dart';
 class SettingScreen extends StatelessWidget {
   SettingScreen({super.key}) {
     _upperSettings = [
-      SettingModel(name: 'Star messages', icon: Icons.star),
+      SettingModel(
+        name: 'Star messages',
+        icon: Icons.star,
+        routeName: StarMessageScreen.routeName,
+      ),
       SettingModel(name: 'Last call', icon: Icons.phone),
       SettingModel(name: 'My folder', icon: Icons.people_alt),
       SettingModel(name: 'Appearance', icon: Icons.face_unlock_outlined),
@@ -137,38 +142,43 @@ class SettingComponents extends StatelessWidget {
         const SizedBox(height: 10),
         ...List.generate(
           _settings.length,
-          (index) => Container(
-            margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-            child: Row(
-              children: <Widget>[
-                Container(
-                  width: 32,
-                  height: 32,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: AppColors.primary[50],
-                  ),
-                  child: Icon(
-                    _settings[index].icon,
-                    color: AppColors.primary,
-                  ),
-                ),
-                const SizedBox(width: 20),
-                Expanded(
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      _settings[index].name,
-                      style: Theme.of(context).textTheme.bodyText2,
+          (index) => GestureDetector(
+            onTap: () {
+              GoRouter.of(context).pushNamed(_settings[index].routeName ?? '');
+            },
+            child: Container(
+              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+              child: Row(
+                children: <Widget>[
+                  Container(
+                    width: 32,
+                    height: 32,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: AppColors.primary[50],
+                    ),
+                    child: Icon(
+                      _settings[index].icon,
+                      color: AppColors.primary,
                     ),
                   ),
-                ),
-                Icon(
-                  Icons.navigate_next,
-                  color: AppColors.divider,
-                  size: 30,
-                ),
-              ],
+                  const SizedBox(width: 20),
+                  Expanded(
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        _settings[index].name,
+                        style: Theme.of(context).textTheme.bodyText2,
+                      ),
+                    ),
+                  ),
+                  Icon(
+                    Icons.navigate_next,
+                    color: AppColors.divider,
+                    size: 30,
+                  ),
+                ],
+              ),
             ),
           ),
         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/privacy/models/privacy_models.dart';
+import 'package:flutter_chatme_app/app/views/pages/home/settings/privacy/screens/blocked_contact/blocked_contact_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/privacy/screens/last_seen/last_seen_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/widgets/header_setting_screen.dart';
 import 'package:flutter_chatme_app/common/app_colors.dart';
@@ -17,7 +18,11 @@ class PrivacyScreen extends StatelessWidget {
       PrivacyModel(title: 'Profile Photo', subTitle: 'My Contact'),
       PrivacyModel(title: 'About', subTitle: 'My Contact'),
       PrivacyModel(title: 'Group', subTitle: 'Everyone'),
-      PrivacyModel(title: 'Blocked Contact', subTitle: '4 Contacts'),
+      PrivacyModel(
+        title: 'Blocked Contact',
+        subTitle: '4 Contacts',
+        routeName: BlockedContactScreen.routeName,
+      ),
       PrivacyModel(title: 'Face ID'),
     ];
   }

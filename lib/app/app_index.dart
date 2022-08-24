@@ -11,6 +11,7 @@ import 'package:flutter_chatme_app/app/views/pages/home/settings/appearance/appe
 import 'package:flutter_chatme_app/app/views/pages/home/settings/edit_profile/edit_profile_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/last_call/last_call_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/privacy/privacy_screen.dart';
+import 'package:flutter_chatme_app/app/views/pages/home/settings/privacy/screens/blocked_contact/blocked_contact_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/privacy/screens/last_seen/last_seen_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/qr_code/qr_code_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/setting_screen.dart';
@@ -112,6 +113,11 @@ class Main extends StatelessWidget {
         path: LastSeenScreen.routePath,
         name: LastSeenScreen.routeName,
         builder: (context, state) => LastSeenScreen(),
+      ),
+      GoRoute(
+        path: BlockedContactScreen.routePath,
+        name: BlockedContactScreen.routeName,
+        builder: (context, state) => BlockedContactScreen(),
       ),
     ],
   );

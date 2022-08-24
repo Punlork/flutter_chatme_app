@@ -143,42 +143,53 @@ class NewContactScreen extends StatelessWidget {
 class CustomNewContactTextField extends StatelessWidget {
   const CustomNewContactTextField({
     super.key,
-    required this.title,
+    this.title,
     required this.hintText,
     required this.iconData,
   });
 
-  final String title;
+  final String? title;
   final String hintText;
   final IconData? iconData;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          title,
-          style: Theme.of(context).textTheme.bodyText2,
-        ),
-        const SizedBox(height: 10),
-        Container(
-          decoration: BoxDecoration(
-            border: Border.all(color: AppColors.divider),
-            borderRadius: BorderRadius.circular(16),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: AppData.appPadding),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title ?? '',
+            style: Theme.of(context).textTheme.bodyText2,
           ),
-          padding: const EdgeInsets.symmetric(
-            horizontal: AppData.appPadding,
-            vertical: 5,
-          ),
-          child: TextField(
-            decoration: InputDecoration(
-              icon: iconData != null ? Icon(iconData) : null,
-              hintText: hintText,
+          const SizedBox(height: 10),
+          Container(
+            decoration: BoxDecoration(
+              border: Border.all(color: AppColors.divider),
+              borderRadius: BorderRadius.circular(16),
+            ),
+            padding: const EdgeInsets.symmetric(
+              horizontal: AppData.appPadding,
+              vertical: 5,
+            ),
+            child: TextField(
+              decoration: InputDecoration(
+                icon: iconData != null
+                    ? Icon(
+                        iconData,
+                        color: AppColors.white,
+                      )
+                    : null,
+                hintText: hintText,
+                hintStyle: TextStyle(
+                  color: AppColors.white,
+                ),
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

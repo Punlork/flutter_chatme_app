@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/edit_profile/edit_profile_screen.dart';
+import 'package:flutter_chatme_app/app/views/pages/home/settings/last_call/last_call_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/models/setting_models.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/qr_code/qr_code_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/star_message/star_message_screen.dart';
@@ -15,7 +16,11 @@ class SettingScreen extends StatelessWidget {
         icon: Icons.star,
         routeName: StarMessageScreen.routeName,
       ),
-      SettingModel(name: 'Last call', icon: Icons.phone),
+      SettingModel(
+        name: 'Last call',
+        icon: Icons.phone,
+        routeName: LastCallScreen.routeName,
+      ),
       SettingModel(name: 'My folder', icon: Icons.people_alt),
       SettingModel(name: 'Appearance', icon: Icons.face_unlock_outlined),
       SettingModel(name: 'Notification', icon: Icons.notifications),
@@ -89,6 +94,7 @@ class SettingScreen extends StatelessWidget {
                           color: AppColors.nuetral[900],
                         ),
                       ),
+                      const SizedBox(height: 5),
                       Text(
                         '+61-827-680-673',
                         style: TextStyle(

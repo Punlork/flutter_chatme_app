@@ -47,7 +47,7 @@ class StarMessageScreen extends StatelessWidget {
           children: <Widget>[
             Container(
               width: double.infinity,
-              height: MediaQuery.of(context).size.height * 0.1,
+              height: MediaQuery.of(context).size.height * 0.15,
               color: AppColors.primary,
               padding: EdgeInsets.symmetric(horizontal: AppData.appPadding),
               child: Row(
@@ -78,11 +78,14 @@ class StarMessageScreen extends StatelessWidget {
                 ],
               ),
             ),
-            ...List.generate(_starMessage.length, (index) {
-              return CustomStarMessage(
-                starMessage: _starMessage[index],
-              );
-            }),
+            ...List.generate(
+              _starMessage.length,
+              (index) {
+                return CustomStarMessage(
+                  starMessage: _starMessage[index],
+                );
+              },
+            ),
           ],
         ),
       ),

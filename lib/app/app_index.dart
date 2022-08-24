@@ -8,6 +8,7 @@ import 'package:flutter_chatme_app/app/views/pages/home/homepage_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/new_chat/new_chat_typing_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/new_contact/new_contact_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/edit_profile/edit_profile_screen.dart';
+import 'package:flutter_chatme_app/app/views/pages/home/settings/last_call/last_call_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/qr_code/qr_code_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/setting_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/star_message/star_message_screen.dart';
@@ -88,6 +89,11 @@ class Main extends StatelessWidget {
         path: StarMessageScreen.routePath,
         name: StarMessageScreen.routeName,
         builder: (context, state) => StarMessageScreen(),
+      ),
+      GoRoute(
+        path: LastCallScreen.routePath,
+        name: LastCallScreen.routeName,
+        builder: (context, state) => LastCallScreen(),
       ),
     ],
   );

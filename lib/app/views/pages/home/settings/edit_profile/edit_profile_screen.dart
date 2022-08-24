@@ -51,7 +51,7 @@ class EditProfileScreen extends StatelessWidget {
                                 color: AppColors.primary,
                               ),
                               child: Icon(
-                                Icons.camera_alt_rounded,
+                                Icons.linked_camera,
                               ),
                             ),
                           ),

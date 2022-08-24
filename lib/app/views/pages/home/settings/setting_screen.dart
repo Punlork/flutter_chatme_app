@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/appearance/appearance_screen.dart';
+import 'package:flutter_chatme_app/app/views/pages/home/settings/date_storage/data_storage_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/edit_profile/edit_profile_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/last_call/last_call_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/models/setting_models.dart';
@@ -40,7 +41,11 @@ class SettingScreen extends StatelessWidget {
         icon: Icons.lock,
         routeName: PrivacyScreen.routeName,
       ),
-      SettingModel(name: 'Data storage', icon: Icons.storage),
+      SettingModel(
+        name: 'Data storage',
+        icon: Icons.storage,
+        routeName: DataStorageScreen.routeName,
+      ),
       SettingModel(name: 'FAQ', icon: Icons.question_mark),
       SettingModel(name: 'Logout', icon: Icons.logout),
     ];

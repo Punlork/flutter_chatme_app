@@ -8,6 +8,8 @@ import 'package:flutter_chatme_app/app/views/pages/home/homepage_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/new_chat/new_chat_typing_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/new_contact/new_contact_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/appearance/appearance_screen.dart';
+import 'package:flutter_chatme_app/app/views/pages/home/settings/date_storage/data_storage_screen.dart';
+import 'package:flutter_chatme_app/app/views/pages/home/settings/date_storage/manage_storage/manage_storage_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/edit_profile/edit_profile_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/last_call/last_call_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/privacy/privacy_screen.dart';
@@ -118,6 +120,16 @@ class Main extends StatelessWidget {
         path: BlockedContactScreen.routePath,
         name: BlockedContactScreen.routeName,
         builder: (context, state) => BlockedContactScreen(),
+      ),
+      GoRoute(
+        path: DataStorageScreen.routePath,
+        name: DataStorageScreen.routeName,
+        builder: (context, state) => DataStorageScreen(),
+      ),
+      GoRoute(
+        path: ManageStorageScreen.routePath,
+        name: ManageStorageScreen.routeName,
+        builder: (context, state) => ManageStorageScreen(),
       ),
     ],
   );

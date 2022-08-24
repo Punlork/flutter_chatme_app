@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/date_storage/manage_storage/manage_storage_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/date_storage/models/data_storage_models.dart';
+import 'package:flutter_chatme_app/app/views/pages/home/settings/date_storage/photos/photos_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/widgets/header_setting_screen.dart';
 import 'package:flutter_chatme_app/common/app_colors.dart';
 import 'package:flutter_chatme_app/common/app_data.dart';
@@ -9,7 +10,11 @@ import 'package:go_router/go_router.dart';
 class DataStorageScreen extends StatelessWidget {
   DataStorageScreen({Key? key}) : super(key: key) {
     _dataStorage = [
-      DataStorageModel(title: 'Photos', subtitle: 'Off'),
+      DataStorageModel(
+        title: 'Photos',
+        subtitle: 'Off',
+        routeName: PhotosScreen.routeName,
+      ),
       DataStorageModel(title: 'Audio', subtitle: 'Wi-Fi'),
       DataStorageModel(title: 'Documents', subtitle: 'Wi-Fi and Cellular'),
       DataStorageModel(title: 'Videos', subtitle: 'Off'),
@@ -65,40 +70,50 @@ class DataStorageScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-                ...List.generate(_dataStorage.length, (index) {
-                  return Container(
-                    margin: EdgeInsets.symmetric(vertical: 10),
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Text(
-                              _dataStorage[index].title,
-                              style: Theme.of(context).textTheme.bodyText2,
-                            ),
+                ...List.generate(
+                  _dataStorage.length,
+                  (index) {
+                    return GestureDetector(
+                      onTap: () {
+                        GoRouter.of(context)
+                            .pushNamed(_dataStorage[index].routeName ?? '');
+                      },
+                      child: Container(
+                        margin: EdgeInsets.symmetric(vertical: 10),
+                        width: double.infinity,
+                        child: Column(
+                          children: [
                             Row(
-                              children: [
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
                                 Text(
-                                  _dataStorage[index].subtitle,
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    color: AppColors.nuetral[300],
-                                  ),
+                                  _dataStorage[index].title,
+                                  style: Theme.of(context).textTheme.bodyText2,
                                 ),
-                                Icon(
-                                  Icons.navigate_next,
-                                  color: AppColors.nuetral[300],
+                                Row(
+                                  children: [
+                                    Text(
+                                      _dataStorage[index].subtitle,
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        color: AppColors.nuetral[300],
+                                      ),
+                                    ),
+                                    Icon(
+                                      Icons.navigate_next,
+                                      color: AppColors.nuetral[300],
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),
+                            Divider(),
                           ],
                         ),
-                        Divider(),
-                      ],
-                    ),
-                  );
-                })
+                      ),
+                    );
+                  },
+                ),
               ],
             ),
           )

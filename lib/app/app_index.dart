@@ -10,6 +10,7 @@ import 'package:flutter_chatme_app/app/views/pages/home/new_contact/new_contact_
 import 'package:flutter_chatme_app/app/views/pages/home/settings/appearance/appearance_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/date_storage/data_storage_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/date_storage/manage_storage/manage_storage_screen.dart';
+import 'package:flutter_chatme_app/app/views/pages/home/settings/date_storage/photos/photos_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/edit_profile/edit_profile_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/last_call/last_call_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/privacy/privacy_screen.dart';
@@ -130,6 +131,11 @@ class Main extends StatelessWidget {
         path: ManageStorageScreen.routePath,
         name: ManageStorageScreen.routeName,
         builder: (context, state) => ManageStorageScreen(),
+      ),
+      GoRoute(
+        path: PhotosScreen.routePath,
+        name: PhotosScreen.routeName,
+        builder: (context, state) => PhotosScreen(),
       ),
     ],
   );

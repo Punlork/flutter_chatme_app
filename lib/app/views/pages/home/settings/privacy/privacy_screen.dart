@@ -16,7 +16,10 @@ class PrivacyScreen extends StatelessWidget {
         routeName: LastSeenScreen.routeName,
       ),
       PrivacyModel(title: 'Profile Photo', subTitle: 'My Contact'),
-      PrivacyModel(title: 'About', subTitle: 'My Contact'),
+      PrivacyModel(
+        title: 'About',
+        subTitle: 'My Contact',
+      ),
       PrivacyModel(title: 'Group', subTitle: 'Everyone'),
       PrivacyModel(
         title: 'Blocked Contact',

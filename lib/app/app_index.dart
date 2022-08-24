@@ -7,6 +7,7 @@ import 'package:flutter_chatme_app/app/views/pages/add_phone_number/add_phone_nu
 import 'package:flutter_chatme_app/app/views/pages/home/homepage_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/new_chat/new_chat_typing_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/new_contact/new_contact_screen.dart';
+import 'package:flutter_chatme_app/app/views/pages/home/settings/appearance/appearance_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/edit_profile/edit_profile_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/last_call/last_call_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/qr_code/qr_code_screen.dart';
@@ -94,6 +95,16 @@ class Main extends StatelessWidget {
         path: LastCallScreen.routePath,
         name: LastCallScreen.routeName,
         builder: (context, state) => LastCallScreen(),
+      ),
+      GoRoute(
+        path: AppearanceScreen.routePath,
+        name: AppearanceScreen.routeName,
+        builder: (context, state) => AppearanceScreen(),
+      ),
+      GoRoute(
+        path: AppearanceScreen.routePath,
+        name: AppearanceScreen.routeName,
+        builder: (context, state) => AppearanceScreen(),
       ),
     ],
   );

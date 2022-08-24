@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chatme_app/app/views/pages/home/settings/appearance/appearance_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/edit_profile/edit_profile_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/last_call/last_call_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/models/setting_models.dart';
@@ -21,8 +22,15 @@ class SettingScreen extends StatelessWidget {
         icon: Icons.phone,
         routeName: LastCallScreen.routeName,
       ),
-      SettingModel(name: 'My folder', icon: Icons.people_alt),
-      SettingModel(name: 'Appearance', icon: Icons.face_unlock_outlined),
+      SettingModel(
+        name: 'My folder',
+        icon: Icons.people_alt,
+      ),
+      SettingModel(
+        name: 'Appearance',
+        icon: Icons.face_unlock_outlined,
+        routeName: AppearanceScreen.routeName,
+      ),
       SettingModel(name: 'Notification', icon: Icons.notifications),
     ];
     _lowerSettings = [

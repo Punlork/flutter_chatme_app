@@ -14,6 +14,73 @@ class EditProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double _rountProfile = 148;
+    void showCustomDialog(BuildContext context) {
+      showGeneralDialog(
+        context: context,
+        barrierLabel: 'Barrier',
+        barrierDismissible: true,
+        barrierColor: Colors.black.withOpacity(0.5),
+        transitionDuration: const Duration(milliseconds: 300),
+        pageBuilder: (_, __, ___) {
+          return Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              height: MediaQuery.of(context).size.height * 0.3,
+              margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(16),
+              ),
+              padding: const EdgeInsets.all(AppData.appPadding),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      width: double.infinity,
+                      child: Image.asset(
+                        'assets/images/Group 1073.png',
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Row(
+                    children: <Widget>[
+                      Icon(
+                        Icons.camera_alt_rounded,
+                        color: AppColors.primary,
+                      ),
+                      const SizedBox(width: 20),
+                      Text(
+                        'Take Photo',
+                        style: Theme.of(context).textTheme.bodyText2,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
+                  Row(
+                    children: <Widget>[
+                      Icon(
+                        Icons.photo,
+                        color: AppColors.primary,
+                      ),
+                      const SizedBox(width: 20),
+                      Text(
+                        'Choose From Library',
+                        style: Theme.of(context).textTheme.bodyText2,
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          );
+        },
+      );
+    }
+
     return Scaffold(
       body: Column(
         children: <Widget>[
@@ -50,8 +117,11 @@ class EditProfileScreen extends StatelessWidget {
                                 shape: BoxShape.circle,
                                 color: AppColors.primary,
                               ),
-                              child: Icon(
-                                Icons.linked_camera,
+                              child: IconButton(
+                                onPressed: () {
+                                  showCustomDialog(context);
+                                },
+                                icon: Icon(Icons.linked_camera),
                               ),
                             ),
                           ),

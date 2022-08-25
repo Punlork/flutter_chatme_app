@@ -158,7 +158,7 @@ class CustomNewChatHeader extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Icon(icon != null ? icon : null),
+                    icon != null ? Icon(icon) : SizedBox(),
                     SizedBox(width: icon != null ? 10 : 0),
                     Text(
                       name,
@@ -166,6 +166,7 @@ class CustomNewChatHeader extends StatelessWidget {
                     ),
                   ],
                 ),
+                const SizedBox(height: 10),
                 Text(
                   subtitle,
                   style: TextStyle(color: AppColors.white, fontSize: 16),

@@ -71,6 +71,7 @@ class FAQScreen extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.symmetric(
                           horizontal: AppData.appPadding,
+                          vertical: 10,
                         ),
                         child: Text(
                           _faq[index].description ?? '',

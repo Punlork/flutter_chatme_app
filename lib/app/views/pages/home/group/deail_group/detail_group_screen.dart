@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/group/photos/group_photo.dart';
+import 'package:flutter_chatme_app/app/views/pages/home/profile_detail/profiel_detail_screen.dart';
 import 'package:flutter_chatme_app/common/app_colors.dart';
 import 'package:flutter_chatme_app/common/app_data.dart';
 import 'package:go_router/go_router.dart';
@@ -165,18 +166,24 @@ class DetailGroupScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 20),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text('Arlene McCoy'),
-                        const SizedBox(height: 5),
-                        Text(
-                          'Online',
-                          style: TextStyle(
-                            color: AppColors.primary[400],
+                    GestureDetector(
+                      onTap: () {
+                        GoRouter.of(context)
+                            .pushNamed(ProfileDetailScreen.routeName);
+                      },
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text('Arlene McCoy'),
+                          const SizedBox(height: 5),
+                          Text(
+                            'Online',
+                            style: TextStyle(
+                              color: AppColors.primary[400],
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     )
                   ],
                 ),

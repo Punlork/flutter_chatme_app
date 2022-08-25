@@ -11,6 +11,7 @@ import 'package:flutter_chatme_app/app/views/pages/home/group/photos/group_photo
 import 'package:flutter_chatme_app/app/views/pages/home/homepage_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/new_chat/new_chat_typing_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/new_contact/new_contact_screen.dart';
+import 'package:flutter_chatme_app/app/views/pages/home/profile_detail/profiel_detail_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/appearance/appearance_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/date_storage/data_storage_screen.dart';
 import 'package:flutter_chatme_app/app/views/pages/home/settings/date_storage/manage_storage/manage_storage_screen.dart';
@@ -161,6 +162,11 @@ class Main extends StatelessWidget {
         path: GroupPhotoScreen.routePath,
         name: GroupPhotoScreen.routeName,
         builder: (context, state) => GroupPhotoScreen(),
+      ),
+      GoRoute(
+        path: ProfileDetailScreen.routePath,
+        name: ProfileDetailScreen.routeName,
+        builder: (context, state) => ProfileDetailScreen(),
       ),
     ],
   );
